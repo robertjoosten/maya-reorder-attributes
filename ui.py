@@ -145,7 +145,7 @@ class AttributeItem(QListWidgetItem):
         so the attribute can actually be deleted. These two functions are
         wrapped into one undo chunk for later undoing.
         """
-        with utils.UndoContext():
+        with utils.UndoChunkContext():
             cmds.setAttr(self.name, lock=False)
             cmds.deleteAttr(self.name)
         
@@ -363,7 +363,7 @@ class ReorderAttributesWidget(QWidget):
         order that when all of the deletion are undone. The attribute order
         is changed to what the input of the user.
         """
-        with utils.UndoState():
+        with utils.UndoStateContext():
             for attr in self.widget.attributes:
                 attr.delete()
                 

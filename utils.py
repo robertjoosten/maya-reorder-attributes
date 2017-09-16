@@ -2,7 +2,7 @@ import os
 import sys
 from maya import OpenMaya, cmds
 
-class UndoState(object):
+class UndoStateContext(object):
     """
     The undo state is used to force undo commands to be registered when this
     tool is being used. Once the "with" statement is being exited, the default
@@ -26,7 +26,7 @@ class UndoState(object):
             length=self.length
         )
 
-class UndoContext(object):
+class UndoChunkContext(object):
     """
     The undo context is used to combine a chain of commands into one undo.
     Can be used in combination with the "with" statement.
