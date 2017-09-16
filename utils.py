@@ -2,6 +2,30 @@ import os
 import sys
 from maya import OpenMaya, cmds
 
+class UndoState(object):
+    """
+    The undo state is used to force undo commands to be registered when this
+    tool is being used. Once the "with" statement is being exited, the default
+    settings are restored.
+    
+    with UndoState():
+        # code
+    """
+    def __init__(self):
+        self.state = cmds.undoInfo(query=True, state=True)
+        self.infinity = cmds.undoInfo(query=True, infinity=True)
+        self.length = cmds.undoInfo(query=True, length=True)
+
+    def __enter__(self):
+        cmds.undoInfo(state=True, infinity=True)
+        
+    def __exit__(self, *exc_info):
+        cmds.undoInfo(
+            state=self.state, 
+            infinity=self.infinity, 
+            length=self.length
+        )
+
 class UndoContext(object):
     """
     The undo context is used to combine a chain of commands into one undo.
@@ -15,6 +39,7 @@ class UndoContext(object):
         
     def __exit__(self, *exc_info):
         cmds.undoInfo(closeChunk=True)
+        
         
 def getLastSelectedNode():
     """

@@ -363,11 +363,12 @@ class ReorderAttributesWidget(QWidget):
         order that when all of the deletion are undone. The attribute order
         is changed to what the input of the user.
         """
-        for attr in self.widget.attributes:
-            attr.delete()
-            
-        for _ in range(self.widget.count()):
-            cmds.undo()
+        with utils.UndoState():
+            for attr in self.widget.attributes:
+                attr.delete()
+                
+            for _ in range(self.widget.count()):
+                cmds.undo()
             
     # ------------------------------------------------------------------------
     
