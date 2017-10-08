@@ -1,0 +1,138 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>rjReorderAttr.utils module &#8212; rjReorderAttr  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjReorderAttr  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-rjReorderAttr.utils">
+<span id="rjreorderattr-utils-module"></span><h1>rjReorderAttr.utils module<a class="headerlink" href="#module-rjReorderAttr.utils" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rjReorderAttr.utils.UndoChunkContext">
+<em class="property">class </em><code class="descclassname">rjReorderAttr.utils.</code><code class="descname">UndoChunkContext</code><a class="headerlink" href="#rjReorderAttr.utils.UndoChunkContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The undo context is used to combine a chain of commands into one undo.
+Can be used in combination with the “with” statement.</p>
+<dl class="docutils">
+<dt>with UndoChunkContext():</dt>
+<dd># code</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="rjReorderAttr.utils.UndoStateContext">
+<em class="property">class </em><code class="descclassname">rjReorderAttr.utils.</code><code class="descname">UndoStateContext</code><a class="headerlink" href="#rjReorderAttr.utils.UndoStateContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<p>The undo state is used to force undo commands to be registered when this
+tool is being used. Once the “with” statement is being exited, the default
+settings are restored.</p>
+<dl class="docutils">
+<dt>with UndoStateContext():</dt>
+<dd># code</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjReorderAttr.utils.getLastSelectedNode">
+<code class="descclassname">rjReorderAttr.utils.</code><code class="descname">getLastSelectedNode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.utils.getLastSelectedNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the current selection with the Maya API and return the last item on
+the selection list. The reason the API has to be used is that there is a 
+delay with cmds, not returning the right node. This function gets called
+as a result of a OpenMaya.MModelMessage.kActiveListModified callback.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Full name of latest selected object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/rjReorderAttr.utils.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjReorderAttr  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

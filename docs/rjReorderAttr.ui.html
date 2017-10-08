@@ -1,0 +1,403 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>rjReorderAttr.ui module &#8212; rjReorderAttr  &#39;&#39; documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     ' &#39;&#39;',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjReorderAttr  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-rjReorderAttr.ui">
+<span id="rjreorderattr-ui-module"></span><h1>rjReorderAttr.ui module<a class="headerlink" href="#module-rjReorderAttr.ui" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="rjReorderAttr.ui.AttributeDisplayWidget">
+<em class="property">class </em><code class="descclassname">rjReorderAttr.ui.</code><code class="descname">AttributeDisplayWidget</code><span class="sig-paren">(</span><em>parent=None</em>, <em>defaultName='Long'</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.AttributeDisplayWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<dl class="method">
+<dt id="rjReorderAttr.ui.AttributeDisplayWidget.buttonReleased">
+<code class="descname">buttonReleased</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.AttributeDisplayWidget.buttonReleased" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the radio button selection is changed this command gets called,
+it will read the name of the selected button. This name will get lower
+cased and parsed into the signal that gets emitted.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.AttributeDisplayWidget.signal">
+<code class="descname">signal</code><em class="property"> = &lt;PySide.QtCore.Signal object&gt;</em><a class="headerlink" href="#rjReorderAttr.ui.AttributeDisplayWidget.signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.AttributeDisplayWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#rjReorderAttr.ui.AttributeDisplayWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rjReorderAttr.ui.AttributeItem">
+<em class="property">class </em><code class="descclassname">rjReorderAttr.ui.</code><code class="descname">AttributeItem</code><span class="sig-paren">(</span><em>node</em>, <em>attr</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.AttributeItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QListWidgetItem</span></code></p>
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.AttributeItem.attr">
+<code class="descname">attr</code><a class="headerlink" href="#rjReorderAttr.ui.AttributeItem.attr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.AttributeItem.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.AttributeItem.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete attribute, first set the lock stated of the attribute to false
+so the attribute can actually be deleted. These two functions are
+wrapped into one undo chunk for later undoing.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.AttributeItem.name">
+<code class="descname">name</code><a class="headerlink" href="#rjReorderAttr.ui.AttributeItem.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.AttributeItem.node">
+<code class="descname">node</code><a class="headerlink" href="#rjReorderAttr.ui.AttributeItem.node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.AttributeItem.rename">
+<code class="descname">rename</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.AttributeItem.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename the attribute with the mode, the three possible modes and 
+correspoding names have been stored during the initializing of this 
+item.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rjReorderAttr.ui.DropListWidget">
+<em class="property">class </em><code class="descclassname">rjReorderAttr.ui.</code><code class="descname">DropListWidget</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.DropListWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QListWidget</span></code></p>
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.DropListWidget.attributes">
+<code class="descname">attributes</code><a class="headerlink" href="#rjReorderAttr.ui.DropListWidget.attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all attributes in the widget, this list is reversed as its needed
+to start the deletion process of the attributes in reverse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of attributes ( AttributeItem )</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.DropListWidget.dropEvent">
+<code class="descname">dropEvent</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.DropListWidget.dropEvent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.DropListWidget.rename">
+<code class="descname">rename</code><span class="sig-paren">(</span><em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.DropListWidget.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename all attributes by setting the mode, this mode can be three 
+different things as have been initialized in the attribute item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> (<em>str</em>) – Attribute name mode: “long”, “short” or “nice”.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.DropListWidget.signal">
+<code class="descname">signal</code><em class="property"> = &lt;PySide.QtCore.Signal object&gt;</em><a class="headerlink" href="#rjReorderAttr.ui.DropListWidget.signal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.DropListWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#rjReorderAttr.ui.DropListWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.DropListWidget.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>node</em>, <em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.DropListWidget.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Based on the input the widget gets updated with a list of the user 
+defined attributes of the parsed nodes. The attributes display name
+depends on the mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>node</strong> (<em>str</em>) – Node of which to query user defined attributes</li>
+<li><strong>mode</strong> (<em>str</em>) – Attribute name mode: “long”, “short” or “nice”.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rjReorderAttr.ui.ReorderAttributesWidget">
+<em class="property">class </em><code class="descclassname">rjReorderAttr.ui.</code><code class="descname">ReorderAttributesWidget</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.ReorderAttributesWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">PySide.QtGui.QWidget</span></code></p>
+<dl class="method">
+<dt id="rjReorderAttr.ui.ReorderAttributesWidget.addCallback">
+<code class="descname">addCallback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.ReorderAttributesWidget.addCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a callback to run the update function every time the
+selection list is modified.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.ReorderAttributesWidget.closeEvent">
+<code class="descname">closeEvent</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.ReorderAttributesWidget.closeEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subclass the closeEvent function to first remove the callback, 
+this callback shouldn’t be floating around and should be deleted
+with the widget.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.ReorderAttributesWidget.isReferenced">
+<code class="descname">isReferenced</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.ReorderAttributesWidget.isReferenced" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the node selected is referenced, reordering of attributes is
+not supported on referenced objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Referenced state of self.node</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.ReorderAttributesWidget.removeCallback">
+<code class="descname">removeCallback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.ReorderAttributesWidget.removeCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the callback that updates the ui every time the selection
+list is modified.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.ReorderAttributesWidget.reorder">
+<code class="descname">reorder</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.ReorderAttributesWidget.reorder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reorder all of the attributes based on the new attribute list. All of
+the attributes in the list are deleted, they are deleted in such an 
+order that when all of the deletion are undone. The attribute order
+is changed to what the input of the user.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.ReorderAttributesWidget.staticMetaObject">
+<code class="descname">staticMetaObject</code><em class="property"> = &lt;PySide.QtCore.QMetaObject object&gt;</em><a class="headerlink" href="#rjReorderAttr.ui.ReorderAttributesWidget.staticMetaObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rjReorderAttr.ui.ReorderAttributesWidget.title">
+<code class="descname">title</code><a class="headerlink" href="#rjReorderAttr.ui.ReorderAttributesWidget.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>The title of the window, this title differs based on the selection.
+If no node is active, the default title will be returned. If a node is
+active, the full path will be stripped into a base name and appened
+to the default title.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Window title</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="rjReorderAttr.ui.ReorderAttributesWidget.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.ReorderAttributesWidget.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update function gets ran every time the selection is changed. The 
+latest selected node will be queried. The list widget updated with the
+attributes of that node. The UI is disabled of the node selected is
+referenced.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="rjReorderAttr.ui.getChannelBox">
+<code class="descclassname">rjReorderAttr.ui.</code><code class="descname">getChannelBox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.getChannelBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ChannelBox, convert the main channel box to QT.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maya’s main channel box</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">QWidget</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjReorderAttr.ui.getChannelBoxMenu">
+<code class="descclassname">rjReorderAttr.ui.</code><code class="descname">getChannelBoxMenu</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.getChannelBoxMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get ChannelBox Menu, convert the main channel box to QT and return the 
+Edit QMenu which is part of the channel box’ children.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maya’s main channel box menu</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">QMenu</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjReorderAttr.ui.mayaToQT">
+<code class="descclassname">rjReorderAttr.ui.</code><code class="descname">mayaToQT</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.mayaToQT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maya -&gt; QWidget</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str</em>) – Maya name of an ui object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">QWidget of parsed Maya name</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">QWidget</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjReorderAttr.ui.mayaWindow">
+<code class="descclassname">rjReorderAttr.ui.</code><code class="descname">mayaWindow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.mayaWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Maya’s main window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">QMainWindow</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjReorderAttr.ui.qtToMaya">
+<code class="descclassname">rjReorderAttr.ui.</code><code class="descname">qtToMaya</code><span class="sig-paren">(</span><em>widget</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.qtToMaya" title="Permalink to this definition">¶</a></dt>
+<dd><p>QWidget -&gt; Maya name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>widget</strong> (<em>QWidget</em>) – QWidget of a maya ui object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Maya name of parsed QWidget</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="rjReorderAttr.ui.show">
+<code class="descclassname">rjReorderAttr.ui.</code><code class="descname">show</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#rjReorderAttr.ui.show" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/rjReorderAttr.ui.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">rjReorderAttr  &#39;&#39; documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, &#39;Robert Joosten&#39;.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
+    </div>
+  </body>
+</html>

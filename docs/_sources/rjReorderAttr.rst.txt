@@ -1,0 +1,18 @@
+rjReorderAttr package
+=====================
+
+Submodules
+----------
+
+.. toctree::
+
+   rjReorderAttr.ui
+   rjReorderAttr.utils
+
+Module contents
+---------------
+
+.. automodule:: rjReorderAttr
+    :members:
+    :undoc-members:
+    :show-inheritance:

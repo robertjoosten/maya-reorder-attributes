@@ -1,0 +1,7 @@
+rjReorderAttr\.utils module
+===========================
+
+.. automodule:: rjReorderAttr.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:
