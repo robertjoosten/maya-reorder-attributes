@@ -225,7 +225,7 @@ class DropListWidget(QListWidget):
             
     # ------------------------------------------------------------------------
     
-    def update(self, node, mode):
+    def updateUI(self, node, mode):
         """
         Based on the input the widget gets updated with a list of the user 
         defined attributes of the parsed nodes. The attributes display name
@@ -250,8 +250,6 @@ class DropListWidget(QListWidget):
             
             self.addItem(item)
 
-        QListWidget.update(self)
-                
     def dropEvent(self, event):
         QListWidget.dropEvent(self, event)
         self.signal.emit()
@@ -294,7 +292,7 @@ class ReorderAttributesWidget(QWidget):
         self.widget.signal.connect(self.reorder)
 
         # update
-        self.update()
+        self.updateUI()
         self.addCallback()
         
     # ------------------------------------------------------------------------
@@ -332,7 +330,7 @@ class ReorderAttributesWidget(QWidget):
          
     # ------------------------------------------------------------------------
 
-    def update(self, *args):
+    def updateUI(self, *args):
         """
         Update function gets ran every time the selection is changed. The 
         latest selected node will be queried. The list widget updated with the
@@ -343,7 +341,7 @@ class ReorderAttributesWidget(QWidget):
         self.node = utils.getLastSelectedNode()
         
         # update widget
-        self.widget.update(self.node, self.mode)
+        self.widget.updateUI(self.node, self.mode)
         
         # update title
         self.setWindowTitle(self.title) 
@@ -351,8 +349,6 @@ class ReorderAttributesWidget(QWidget):
         # disable ui if referenced
         referenced = self.isReferenced()
         self.widget.setEnabled(not referenced)
-        
-        QWidget.update(self)
        
     # ------------------------------------------------------------------------
             
@@ -379,7 +375,7 @@ class ReorderAttributesWidget(QWidget):
         """
         self._id = OpenMaya.MModelMessage.addCallback(
             OpenMaya.MModelMessage.kActiveListModified, 
-            self.update
+            self.updateUI
         )
         
     def removeCallback(self):
