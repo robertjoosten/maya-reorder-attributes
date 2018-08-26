@@ -1,0 +1,16 @@
+reorderAttributes package
+=========================
+
+.. automodule:: reorderAttributes
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   reorderAttributes.ui
+   reorderAttributes.utils
+

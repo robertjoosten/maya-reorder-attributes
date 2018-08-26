@@ -2,6 +2,7 @@ import os
 import sys
 from maya import OpenMaya, cmds
 
+
 class UndoStateContext(object):
     """
     The undo state is used to force undo commands to be registered when this
@@ -25,6 +26,7 @@ class UndoStateContext(object):
             infinity=self.infinity, 
             length=self.length
         )
+
 
 class UndoChunkContext(object):
     """
@@ -61,4 +63,3 @@ def getLastSelectedNode():
     dag = OpenMaya.MDagPath()
     selection.getDagPath(num-1, dag)
     return dag.fullPathName()
-    

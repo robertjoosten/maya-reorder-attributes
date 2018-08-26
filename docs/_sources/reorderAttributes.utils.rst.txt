@@ -1,0 +1,7 @@
+reorderAttributes\.utils module
+===============================
+
+.. automodule:: reorderAttributes.utils
+    :members:
+    :undoc-members:
+    :show-inheritance:

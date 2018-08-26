@@ -1,5 +1,9 @@
-from maya import OpenMaya, OpenMayaUI, cmds
-from . import utils 
+from maya import cmds, mel, OpenMaya, OpenMayaUI
+from . import utils
+
+
+# ----------------------------------------------------------------------------
+
 
 # import pyside, do qt version check for maya 2017 >
 qtVersion = cmds.about(qtVersion=True)
@@ -13,12 +17,19 @@ else:
     from PySide2.QtWidgets import *
     import shiboken2 as shiboken
 
+
 # ----------------------------------------------------------------------------
 
-TITLE = "Reorder Attr"
+
+TITLE = "Reorder Attributes"
 CHANNELBOX = "ChannelBoxForm"
 
+DIVIDER_NAME = "reorderAttrDivider"
+BUTTON_NAME = "reorderAttrButton"
+
+
 # ----------------------------------------------------------------------------
+
 
 def mayaWindow():
     """
@@ -32,7 +43,8 @@ def mayaWindow():
     return window  
     
 # ----------------------------------------------------------------------------
-    
+
+
 def mayaToQT(name):
     """
     Maya -> QWidget
@@ -48,7 +60,8 @@ def mayaToQT(name):
         ptr = OpenMayaUI.MQtUtil.findMenuItem(name)
     if ptr is not None:     
         return shiboken.wrapInstance(long(ptr), QWidget)
-    
+
+
 def qtToMaya(widget):
     """
     QWidget -> Maya name
@@ -62,8 +75,10 @@ def qtToMaya(widget):
             shiboken.getCppPointer(widget)[0]
         ) 
     )
-    
+
+
 # ----------------------------------------------------------------------------
+
 
 def getChannelBox():
     """
@@ -74,6 +89,7 @@ def getChannelBox():
     """
     channelBox = mayaToQT(CHANNELBOX)
     return channelBox
+
 
 def getChannelBoxMenu():
     """
@@ -92,8 +108,10 @@ def getChannelBoxMenu():
     for menu in menus:
         if menu.menuAction().text() == "Edit":
             return menu
-             
+
+
 # ----------------------------------------------------------------------------
+
 
 class AttributeItem(QListWidgetItem):
     def __init__(self, node, attr):
@@ -105,9 +123,9 @@ class AttributeItem(QListWidgetItem):
         
         # save modes
         self.modes = {
-            "short":cmds.attributeQuery(attr, node=node, shortName=True),
-            "nice":cmds.attributeQuery(attr, node=node, niceName=True),
-            "long":cmds.attributeQuery(attr, node=node, longName=True),
+            "short": cmds.attributeQuery(attr, node=node, shortName=True),
+            "nice": cmds.attributeQuery(attr, node=node, niceName=True),
+            "long": cmds.attributeQuery(attr, node=node, longName=True),
         }
 
     # ------------------------------------------------------------------------
@@ -148,11 +166,14 @@ class AttributeItem(QListWidgetItem):
         with utils.UndoChunkContext():
             cmds.setAttr(self.name, lock=False)
             cmds.deleteAttr(self.name)
-        
+
+
 # ----------------------------------------------------------------------------
-      
+
+
 class AttributeDisplayWidget(QWidget):
-    signal = Signal(str) 
+    signal = Signal(str)
+
     def __init__(self, parent=None, defaultName="Long"):
         QWidget.__init__(self, parent)
         
@@ -190,9 +211,11 @@ class AttributeDisplayWidget(QWidget):
         button = self.group.checkedButton()
         text = button.text().lower()
         self.signal.emit(text)
-        
+
+
 class DropListWidget(QListWidget):
-    signal = Signal() 
+    signal = Signal()
+
     def __init__(self, parent=None):
         QListWidget.__init__(self, parent)
         
@@ -253,8 +276,10 @@ class DropListWidget(QListWidget):
     def dropEvent(self, event):
         QListWidget.dropEvent(self, event)
         self.signal.emit()
-        
+
+
 # ----------------------------------------------------------------------------
+
 
 class ReorderAttributesWidget(QWidget):
     def __init__(self, parent=None):
@@ -396,8 +421,57 @@ class ReorderAttributesWidget(QWidget):
         self.removeCallback()
         QWidget.closeEvent(self, event)
 
+
 # ----------------------------------------------------------------------------
-        
+
+
 def show(*args):
     reorder = ReorderAttributesWidget(mayaWindow())
     reorder.show()
+
+
+# ----------------------------------------------------------------------------
+
+def install():
+    """
+    Add two additional buttons to the Channel Box -> Edit menu, a divider and
+    a button to open up the attribute reordering ui. The edit menu is
+    retrieved from the channel box form and a mel command is ran to populate
+    this menu in case it hasn't been opened before. If reorderAttributes is
+    already installed the original buttons will be removed and new ones
+    created.
+    """
+    # get edit menu of channel box
+    menu = getChannelBoxMenu()
+    menu = qtToMaya(menu)
+
+    # generate channel box edit menu
+    mel.eval("generateCBEditMenu {0} 0;".format(menu))
+
+    # get all members
+    children = cmds.menu(menu, query=True, itemArray=True)
+    print children
+
+    # remove existing members
+    for name in [DIVIDER_NAME, BUTTON_NAME]:
+        if name not in children:
+            continue
+
+        cmds.deleteUI(name)
+
+    # add divider
+    cmds.menuItem(
+        DIVIDER_NAME,
+        divider=True,
+        p=menu
+    )
+
+    print "WHUPWHUP"
+
+    # add button
+    cmds.menuItem(
+        BUTTON_NAME,
+        label="Reorder Attributes",
+        p=menu,
+        command=show
+    )

@@ -1,7 +1,0 @@
-rjReorderAttr\.ui module
-========================
-
-.. automodule:: rjReorderAttr.ui
-    :members:
-    :undoc-members:
-    :show-inheritance:
