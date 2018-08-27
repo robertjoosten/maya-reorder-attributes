@@ -450,7 +450,6 @@ def install():
 
     # get all members
     children = cmds.menu(menu, query=True, itemArray=True)
-    print children
 
     # remove existing members
     for name in [DIVIDER_NAME, BUTTON_NAME]:
@@ -465,8 +464,6 @@ def install():
         divider=True,
         p=menu
     )
-
-    print "WHUPWHUP"
 
     # add button
     cmds.menuItem(
