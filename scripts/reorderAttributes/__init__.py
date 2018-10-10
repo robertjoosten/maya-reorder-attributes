@@ -25,5 +25,5 @@ and how it can be used to sort attributes.
 from .ui import install
 
 __author__    = "Robert Joosten"
-__version__   = "0.9.4"
+__version__   = "0.9.5"
 __email__     = "rwm.joosten@gmail.com"

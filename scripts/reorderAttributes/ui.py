@@ -218,9 +218,20 @@ class DropListWidget(QListWidget):
 
     def __init__(self, parent=None):
         QListWidget.__init__(self, parent)
-        
+
+        self.setContextMenuPolicy(Qt.ActionsContextMenu)
+        self.addMenuActions()
+
     # ------------------------------------------------------------------------
-    
+
+    def addMenuActions(self):
+        order = QAction(self)
+        order.setText("Order Alphabetically")
+        order.triggered.connect(self.sortItems)
+        self.addAction(order)
+
+    # ------------------------------------------------------------------------
+
     @property
     def attributes(self):
         """
@@ -275,6 +286,10 @@ class DropListWidget(QListWidget):
 
     def dropEvent(self, event):
         QListWidget.dropEvent(self, event)
+        self.signal.emit()
+
+    def sortItems(self):
+        QListWidget.sortItems(self)
         self.signal.emit()
 
 
