@@ -1,0 +1,15 @@
+reorder\_attributes\.widgets package
+====================================
+
+.. automodule:: reorder_attributes.widgets
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   reorder_attributes.widgets.attribute
+

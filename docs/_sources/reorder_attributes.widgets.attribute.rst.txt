@@ -1,0 +1,7 @@
+reorder\_attributes\.widgets\.attribute module
+==============================================
+
+.. automodule:: reorder_attributes.widgets.attribute
+    :members:
+    :undoc-members:
+    :show-inheritance:

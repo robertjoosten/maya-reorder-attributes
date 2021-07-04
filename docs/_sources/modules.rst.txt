@@ -1,7 +1,7 @@
-reorderAttributes
-=================
+reorder_attributes
+==================
 
 .. toctree::
    :maxdepth: 4
 
-   reorderAttributes
+   reorder_attributes

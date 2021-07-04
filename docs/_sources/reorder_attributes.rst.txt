@@ -1,0 +1,24 @@
+reorder\_attributes package
+===========================
+
+.. automodule:: reorder_attributes
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    reorder_attributes.widgets
+
+Submodules
+----------
+
+.. toctree::
+
+   reorder_attributes.install
+   reorder_attributes.ui
+   reorder_attributes.utils
+

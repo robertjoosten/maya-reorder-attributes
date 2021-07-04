@@ -9,7 +9,7 @@ Reorder attributes in Maya.
 Installation
 ============
 * Extract the content of the .rar file anywhere on disk.
-* Drag the reorderAttributes.mel file in Maya to permanently install the script.
+* Drag the reorder-attributes.mel file in Maya to permanently install the script.
 
 Note
 ====
@@ -23,8 +23,6 @@ order by right clicking the list to display the order menu.
 A thank you too Nick Hughes for showing me the power of the undo command 
 and how it can be used to sort attributes.
 """
-from .ui import install
-
-__author__    = "Robert Joosten"
-__version__   = "0.9.5"
-__email__     = "rwm.joosten@gmail.com"
+__author__ = "Robert Joosten"
+__version__ = "1.0.0"
+__email__ = "rwm.joosten@gmail.com"

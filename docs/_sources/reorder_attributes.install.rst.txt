@@ -1,0 +1,7 @@
+reorder\_attributes\.install module
+===================================
+
+.. automodule:: reorder_attributes.install
+    :members:
+    :undoc-members:
+    :show-inheritance:

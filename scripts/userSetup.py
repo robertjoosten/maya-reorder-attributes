@@ -1,4 +1,10 @@
-import maya.cmds as cmds
+from maya import cmds
 
-import reorderAttributes
-cmds.evalDeferred(reorderAttributes.install)
+
+def main():
+    from reorder_attributes import install
+    install.execute()
+
+
+if not cmds.about(batch=True):
+    cmds.evalDeferred(main)

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>reorderAttributes package &#8212; reorderAttributes  &#39;&#39; documentation</title>
+    <title>reorder_attributes.install module &#8212; reorder_attributes  &#39;&#39; documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -34,7 +34,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">reorderAttributes  &#39;&#39; documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">reorder_attributes  &#39;&#39; documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -43,40 +43,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="module-reorderAttributes">
-<span id="reorderattributes-package"></span><h1>reorderAttributes package<a class="headerlink" href="#module-reorderAttributes" title="Permalink to this headline">¶</a></h1>
-<p>Reorder attributes in Maya.</p>
-<div class="figure align-center">
-<img alt="_images/reorderAttributesExample.png" src="_images/reorderAttributesExample.png" />
-</div>
-<p><a class="reference external" href="https://vimeo.com/210495749">Link to Video</a></p>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Extract the content of the .rar file anywhere on disk.</li>
-<li>Drag the reorderAttributes.mel file in Maya to permanently install the script.</li>
-</ul>
-</div>
-<div class="section" id="note">
-<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
-<p>A button called Reorder Attributes will be added to the Channel Box -&gt;
-Edit menu. Clicking this button will open up an ui that will allow the user to
-drag and drop the attributes to reorder. Attributes are deleted in the new
-order and the undo commands is then ran to redo the attributes in the order
-preferred. There is an option to sort the attribute list in alphabetical 
-order by right clicking the list to display the order menu.</p>
-<p>A thank you too Nick Hughes for showing me the power of the undo command 
-and how it can be used to sort attributes.</p>
-</div>
-<div class="section" id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="reorderAttributes.ui.html">reorderAttributes.ui module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reorderAttributes.utils.html">reorderAttributes.utils module</a></li>
-</ul>
-</div>
-</div>
+  <div class="section" id="module-reorder_attributes.install">
+<span id="reorder-attributes-install-module"></span><h1>reorder_attributes.install module<a class="headerlink" href="#module-reorder_attributes.install" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="reorder_attributes.install.execute">
+<code class="descclassname">reorder_attributes.install.</code><code class="descname">execute</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#reorder_attributes.install.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the reorder attributes button to the channel box menu, this button
+will launch the reorder tool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>RuntimeError</strong> – When the reorder attributes is already installed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </div>
 
 
@@ -85,20 +68,10 @@ and how it can be used to sort attributes.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">reorderAttributes package</a><ul>
-<li><a class="reference internal" href="#installation">Installation</a></li>
-<li><a class="reference internal" href="#note">Note</a></li>
-<li><a class="reference internal" href="#submodules">Submodules</a></li>
-</ul>
-</li>
-</ul>
-
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/reorderAttributes.rst.txt"
+      <li><a href="_sources/reorder_attributes.install.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -125,11 +98,11 @@ and how it can be used to sort attributes.</p>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">reorderAttributes  &#39;&#39; documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">reorder_attributes  &#39;&#39; documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, &#39;Robert Joosten&#39;.
+        &#169; Copyright 2021, &#39;Robert Joosten&#39;.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
     </div>
   </body>
