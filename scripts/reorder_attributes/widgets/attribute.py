@@ -178,7 +178,7 @@ class AttributeListWidget(QtWidgets.QListWidget):
 
         # list only user attributes excluding children of compounds
         user_attributes = [
-            a for a in cmds.listAttr(node, userDefined=True)
+            a for a in cmds.listAttr(node, userDefined=True) or []
             if not cmds.attributeQuery(a, node=node, listParent=True)
         ]
         for attribute in user_attributes or []:
