@@ -83,7 +83,7 @@ class AttributeModeWidget(QtWidgets.QWidget):
         self.group = QtWidgets.QButtonGroup(self)
         self.group.buttonReleased.connect(self._emit_mode_changed)
 
-        for i, mode in enumerate(MODES):
+        for mode in MODES:
             button = QtWidgets.QRadioButton(self)
             button.setText(mode.capitalize())
 
@@ -176,7 +176,12 @@ class AttributeListWidget(QtWidgets.QListWidget):
         if not node:
             return
 
-        for attribute in cmds.listAttr(node, userDefined=True) or []:
+        # list only user attributes excluding children of compounds
+        user_attributes = [
+            a for a in cmds.listAttr(node, userDefined=True) or []
+            if not cmds.attributeQuery(a, node=node, listParent=True)
+        ]
+        for attribute in user_attributes or []:
             item = AttributeItem(node, attribute)
             item.set_mode(mode)
 
